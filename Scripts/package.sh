@@ -2,7 +2,7 @@
 set -euo pipefail
 
 ROOT="$(cd "$(dirname "$0")/.." && pwd)"
-VERSION="1.0.0"
+VERSION="1.0.1"
 PRODUCT="LyricsAndSheet"
 BUILD_DIR="${BUILD_DIR:-$ROOT/.build/cmake-universal}"
 DIST="$ROOT/dist"

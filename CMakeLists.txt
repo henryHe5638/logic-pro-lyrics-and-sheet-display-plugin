@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.22)
 
-project(LogicLyricsAndSheet VERSION 1.0.0 LANGUAGES C CXX OBJC OBJCXX)
+project(LogicLyricsAndSheet VERSION 1.0.1 LANGUAGES C CXX OBJC OBJCXX)
 
 set(CMAKE_OSX_DEPLOYMENT_TARGET "12.0" CACHE STRING "Minimum macOS version" FORCE)
 set(CMAKE_CXX_STANDARD 17)

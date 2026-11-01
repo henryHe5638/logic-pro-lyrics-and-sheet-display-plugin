@@ -51,7 +51,7 @@
 
 ### 方式 A：安装包（推荐）
 
-`dist/LogicLyricsAndSheet-1.0.0.pkg`，双击安装，需要管理员密码，装到：
+`dist/LogicLyricsAndSheet-1.0.1.pkg`，双击安装，需要管理员密码，装到：
 
 ```
 /Library/Audio/Plug-Ins/Components/LyricsAndSheet.component
@@ -60,12 +60,12 @@
 系统提示“无法验证开发者”时：右键点 pkg → 打开；或 系统设置 → 隐私与安全性 → 仍要打开；或：
 
 ```bash
-sudo installer -pkg LogicLyricsAndSheet-1.0.0.pkg -target /
+sudo installer -pkg LogicLyricsAndSheet-1.0.1.pkg -target /
 ```
 
 ### 方式 B：免管理员密码
 
-解压 `dist/LogicLyricsAndSheet-1.0.0.zip`，右键点击 `Install-User.command` → 打开。装到：
+解压 `dist/LogicLyricsAndSheet-1.0.1.zip`，右键点击 `Install-User.command` → 打开。装到：
 
 ```
 ~/Library/Audio/Plug-Ins/Components/LyricsAndSheet.component

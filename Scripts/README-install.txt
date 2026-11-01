@@ -5,14 +5,14 @@ Logic Lyrics & Sheet — 安装说明
 
 方式 A：标准安装包（推荐）
 --------------------------
-双击 LogicLyricsAndSheet-1.0.0.pkg，按提示安装，需要输入管理员密码。
+双击 LogicLyricsAndSheet-1.0.1.pkg，按提示安装，需要输入管理员密码。
 插件会安装到 /Library/Audio/Plug-Ins/Components。
 
 如果系统提示“无法打开，因为无法验证开发者”：
 - 右键（或按住 Control）点击 pkg，选择“打开”，再确认一次；或
 - 打开 系统设置 > 隐私与安全性，在页面底部点“仍要打开”；或
 - 在终端执行：
-  sudo installer -pkg LogicLyricsAndSheet-1.0.0.pkg -target /
+  sudo installer -pkg LogicLyricsAndSheet-1.0.1.pkg -target /
 
 方式 B：免管理员密码（只在当前用户下安装）
 ------------------------------------------
