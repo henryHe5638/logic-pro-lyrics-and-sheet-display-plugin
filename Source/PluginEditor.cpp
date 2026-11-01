@@ -534,6 +534,7 @@ LyricsSheetAudioProcessorEditor::LyricsSheetAudioProcessorEditor (LyricsSheetAud
         button->setColour (juce::TextButton::textColourOffId, textMain);
         button->setColour (juce::TextButton::textColourOnId, textMain);
         button->setAlpha (0.9f);
+        button->setMouseCursor (juce::MouseCursor::PointingHandCursor);
         button->setVisible (false);
     }
 
@@ -676,29 +677,37 @@ LyricsSheetAudioProcessorEditor::~LyricsSheetAudioProcessorEditor()
 void LyricsSheetAudioProcessorEditor::paint (juce::Graphics& g)
 {
     g.fillAll (background);
+
+    if (performanceMode)
+    {
+        g.setColour (panel);
+        g.fillRect (0, 0, getWidth(), 42);
+        g.setColour (panelLight);
+        g.fillRect (0, 41, getWidth(), 1);
+    }
 }
 
 void LyricsSheetAudioProcessorEditor::resized()
 {
     if (performanceMode)
     {
-        tabs.setBounds (getLocalBounds().withTrimmedTop (34));
+        tabs.setBounds (getLocalBounds().withTrimmedTop (42));
 
-        auto bar = juce::Rectangle<int> (juce::jmax (0, getWidth() - 330), 6, 320, 26);
-        perfLyricsButton.setBounds (bar.removeFromLeft (56));
-        bar.removeFromLeft (6);
-        perfSheetButton.setBounds (bar.removeFromLeft (56));
-        bar.removeFromLeft (12);
+        auto bar = juce::Rectangle<int> (juce::jmax (0, getWidth() - 364), 6, 356, 30);
+        perfLyricsButton.setBounds (bar.removeFromLeft (68));
+        bar.removeFromLeft (8);
+        perfSheetButton.setBounds (bar.removeFromLeft (68));
+        bar.removeFromLeft (14);
 
         if (perfPrevButton.isVisible())
         {
-            perfPrevButton.setBounds (bar.removeFromLeft (52));
-            bar.removeFromLeft (6);
-            perfNextButton.setBounds (bar.removeFromLeft (52));
-            bar.removeFromLeft (12);
+            perfPrevButton.setBounds (bar.removeFromLeft (54));
+            bar.removeFromLeft (8);
+            perfNextButton.setBounds (bar.removeFromLeft (54));
+            bar.removeFromLeft (14);
         }
 
-        perfExitButton.setBounds (bar.removeFromLeft (56));
+        perfExitButton.setBounds (bar.removeFromLeft (64));
 
         for (auto* button : { &perfLyricsButton, &perfSheetButton, &perfPrevButton,
                               &perfNextButton, &perfExitButton })
@@ -870,6 +879,14 @@ void LyricsSheetAudioProcessorEditor::updatePerformanceOverlay()
     perfLyricsButton.setVisible (visible);
     perfSheetButton.setVisible (visible);
     perfExitButton.setVisible (visible);
+
+    const auto inactive = juce::Colours::black.withAlpha (0.45f);
+    const bool lyricsActive = tabs.getCurrentTabIndex() == 0;
+
+    perfLyricsButton.setColour (juce::TextButton::buttonColourId,
+                                lyricsActive ? accent.withAlpha (0.8f) : inactive);
+    perfSheetButton.setColour (juce::TextButton::buttonColourId,
+                               lyricsActive ? inactive : accent.withAlpha (0.8f));
 
     const bool pager = visible
                        && tabs.getCurrentTabIndex() == 1
